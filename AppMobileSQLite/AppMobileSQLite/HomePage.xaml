@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMobileSQLite.HomePage" Title="Empleados" BackgroundColor="Olive">
+  
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="6" Spacing="10">
+                <Label Text="Empleados" 
+                       Font="25" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       FontAttributes="Bold" />
+                <Entry x:Name="nombresEntry" 
+                       Placeholder="Nombres" />
+                <Entry x:Name="apellidosEntry" 
+                       Placeholder="Apellidos" />
+                <Entry x:Name="salarioEntry" 
+                       Placeholder="Salario" 
+                       Keyboard="Numeric" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Fecha Contratación:" 
+                           VerticalOptions="Center" Font="12" FontAttributes="Bold"/>
+                    <DatePicker x:Name="fechaContratoDatePicker"/>
+                    <Label Text="Activo:" VerticalOptions="Center" FontAttributes="Bold" Font="15"/>
+                    <Switch x:Name="activoSwitch" 
+                            VerticalOptions="Center" 
+                            IsToggled="True" />
+                </StackLayout>
+                <Button x:Name="agregarButton" 
+                        Text="Agregar"
+                        BackgroundColor="Teal"
+                        TextColor="White" />
+                <ListView x:Name="listaListView" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
