@@ -15,11 +15,20 @@ namespace AppMobileSQLite
             InitializeComponent();
 
             agregarButton.Clicked += AgregarButton_Clicked;
+            listaListView.ItemSelected += ListaListView_ItemSelected;
+            listaListView.ItemTemplate = new DataTemplate(typeof(EmpleadoCell));
 
             using (var datos = new DataAccess())
             {
                 listaListView.ItemsSource = datos.GetEmpleados();
             }
+        }
+
+        private void ListaListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            //llamo al el formulario editPage cuando quiera editar algun registro:
+            Navigation.PushAsync(new EditPage((Empleado)e.SelectedItem));
+            
         }
 
         private async void AgregarButton_Clicked(object sender, EventArgs e)
